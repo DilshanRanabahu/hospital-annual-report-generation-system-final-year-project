@@ -17,7 +17,7 @@ const useWards = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/wards/getAll', {
+      const response = await axios.get('/api/wards/getAll', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }

@@ -539,7 +539,7 @@ const AppointmentScheduler = ({ patients }) => {
                         return;
                       }
 
-                      const response = await fetch(`http://localhost:8080/api/appointments/${appointmentId}/complete`, {
+                      const response = await fetch(`/api/appointments/${appointmentId}/complete`, {
                         method: 'PUT',
                         headers: {
                           'Authorization': `Bearer ${jwtToken}`,

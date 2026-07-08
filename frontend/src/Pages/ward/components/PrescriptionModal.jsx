@@ -396,7 +396,7 @@ const PrescriptionModal = ({ isOpen, onClose, activePatients = [], onPrescriptio
       }
 
       // Fetch from pharmacy medications API endpoint
-      const response = await axios.get('http://localhost:8080/api/pharmacy/medications/getAll', {
+      const response = await axios.get('/api/pharmacy/medications/getAll', {
         headers: getAuthHeaders(),
         timeout: 10000 // 10 second timeout
       });
@@ -863,7 +863,7 @@ const PrescriptionModal = ({ isOpen, onClose, activePatients = [], onPrescriptio
           }
 
           // Fetch from pharmacy medications API endpoint
-          const response = await axios.get('http://localhost:8080/api/pharmacy/medications/getAll', {
+          const response = await axios.get('/api/pharmacy/medications/getAll', {
             headers: {
               'Authorization': `Bearer ${jwtToken}`,
               'Content-Type': 'application/json'

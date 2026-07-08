@@ -267,7 +267,7 @@ export default function SessionDetailsModal({ isOpen, onClose, session, onSubmit
 
       // Use fetch API - will succeed despite ad blocker warnings
       const response = await fetch(
-        `http://localhost:8080/api/dialysis/sessions/${session.sessionId}/report/pdf`,
+        `/api/dialysis/sessions/${session.sessionId}/report/pdf`,
         {
           method: 'GET',
           headers: {

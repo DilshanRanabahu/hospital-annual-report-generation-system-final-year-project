@@ -62,7 +62,7 @@ const useLabEquipment = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.get('http://localhost:8080/api/lab/equipment', {
+      const response = await axios.get('/api/lab/equipment', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -113,7 +113,7 @@ const useLabEquipment = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.put(`http://localhost:8080/api/lab/equipment/${equipmentId}`, updateData, {
+      const response = await axios.put(`/api/lab/equipment/${equipmentId}`, updateData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -166,7 +166,7 @@ const useLabEquipment = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.post(`http://localhost:8080/api/lab/equipment/${equipmentId}/maintenance`, maintenanceData, {
+      const response = await axios.post(`/api/lab/equipment/${equipmentId}/maintenance`, maintenanceData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`

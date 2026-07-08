@@ -23,7 +23,7 @@ const useWardAnalytics = (showToast = null) => {
   // Fetch active admissions
   const fetchActiveAdmissions = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/admissions/active', {
+      const response = await axios.get('/api/admissions/active', {
         headers: getAuthHeaders()
       });
       setActiveAdmissions(response.data);
@@ -54,7 +54,7 @@ const useWardAnalytics = (showToast = null) => {
   // Fetch all admissions
   const fetchAllAdmissions = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/admissions/getAll', {
+      const response = await axios.get('/api/admissions/getAll', {
         headers: getAuthHeaders()
       });
       setAllAdmissions(response.data);
@@ -85,7 +85,7 @@ const useWardAnalytics = (showToast = null) => {
   // Fetch wards
   const fetchWards = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/wards/getAll', {
+      const response = await axios.get('/api/wards/getAll', {
         headers: getAuthHeaders()
       });
       setWards(response.data);
@@ -118,7 +118,7 @@ const useWardAnalytics = (showToast = null) => {
     try {
       const patientPromises = nationalIds.map(async (nationalId) => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/patients/${nationalId}`, {
+          const response = await axios.get(`/api/patients/${nationalId}`, {
             headers: getAuthHeaders()
           });
           return response.data;

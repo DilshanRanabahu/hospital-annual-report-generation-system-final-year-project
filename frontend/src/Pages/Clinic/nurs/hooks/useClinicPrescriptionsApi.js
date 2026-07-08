@@ -28,7 +28,7 @@ const useClinicPrescriptions = () => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/pharmacy/medications/getAll', {
+      const response = await axios.get('/api/pharmacy/medications/getAll', {
         headers: getAuthHeaders()
       });
 
@@ -145,7 +145,7 @@ const useClinicPrescriptions = () => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/patients/all', {
+      const response = await axios.get('/api/patients/all', {
         headers: getAuthHeaders()
       });
 
@@ -280,7 +280,7 @@ const useClinicPrescriptions = () => {
       }
 
       // Fetch clinic prescriptions from the specific clinic endpoint
-      const response = await axios.get('http://localhost:8080/api/clinic/prescriptions?page=0&size=100&sortBy=prescribedDate&sortDir=desc', {
+      const response = await axios.get('/api/clinic/prescriptions?page=0&size=100&sortBy=prescribedDate&sortDir=desc', {
         headers: getAuthHeaders()
       });
 
@@ -464,7 +464,7 @@ const useClinicPrescriptions = () => {
       console.log('📤 Sending clinic prescription API request:', JSON.stringify(apiData, null, 2));
 
       // Try using the new clinic prescription endpoint
-      const response = await axios.post('http://localhost:8080/api/clinic/prescriptions', apiData, {
+      const response = await axios.post('/api/clinic/prescriptions', apiData, {
         headers: getAuthHeaders()
       });
 

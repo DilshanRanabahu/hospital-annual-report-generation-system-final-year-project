@@ -31,7 +31,7 @@ const useAppointments = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/appointments/getAll', {
+      const response = await axios.get('/api/appointments/getAll', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -86,7 +86,7 @@ const useAppointments = (showToast = null) => {
         appointmentTime: appointmentData.appointmentTime
       };
 
-      const response = await axios.post('http://localhost:8080/api/appointments/create', requestData, {
+      const response = await axios.post('/api/appointments/create', requestData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -150,7 +150,7 @@ const useAppointments = (showToast = null) => {
         return false;
       }
 
-      await axios.put(`http://localhost:8080/api/appointments/update/${appointmentId}`, appointmentData, {
+      await axios.put(`/api/appointments/update/${appointmentId}`, appointmentData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -205,7 +205,7 @@ const useAppointments = (showToast = null) => {
         return false;
       }
 
-      await axios.delete(`http://localhost:8080/api/appointments/delete/${appointmentId}`, {
+      await axios.delete(`/api/appointments/delete/${appointmentId}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }

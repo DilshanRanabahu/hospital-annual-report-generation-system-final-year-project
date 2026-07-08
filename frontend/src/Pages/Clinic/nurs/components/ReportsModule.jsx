@@ -28,7 +28,7 @@ const ReportsModule = ({ todayStats }) => {
 
       const response = await axios({
         method: 'GET',
-        url: `http://localhost:8080/api/reports/comprehensive-clinic/full-report/${year}/pdf`,
+        url: `/api/reports/comprehensive-clinic/full-report/${year}/pdf`,
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
         },

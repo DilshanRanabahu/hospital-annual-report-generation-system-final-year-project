@@ -544,8 +544,8 @@ const TrendsTab = () => {
         monthlyDispensingResponse,
         topMedicationsResponse
       ] = await Promise.all([
-        fetch(`http://localhost:8080/api/pharmacy/analytics/annual/monthly-dispensing?year=${selectedYear}`, { headers }),
-        fetch(`http://localhost:8080/api/pharmacy/analytics/annual/top-medications?year=${selectedYear}&limit=20`, { headers })
+        fetch(`/api/pharmacy/analytics/annual/monthly-dispensing?year=${selectedYear}`, { headers }),
+        fetch(`/api/pharmacy/analytics/annual/top-medications?year=${selectedYear}&limit=20`, { headers })
       ]);
 
       // Check for errors and handle fallback data

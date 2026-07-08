@@ -20,7 +20,7 @@ const useTransfers = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.post('http://localhost:8080/api/transfers/instant', transferData, {
+      const response = await axios.post('/api/transfers/instant', transferData, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ const useTransfers = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get(`http://localhost:8080/api/transfers/patient/${patientNationalId}/history`, {
+      const response = await axios.get(`/api/transfers/patient/${patientNationalId}/history`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ const useTransfers = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/transfers/all', {
+      const response = await axios.get('/api/transfers/all', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'

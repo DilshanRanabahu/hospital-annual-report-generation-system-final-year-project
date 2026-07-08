@@ -17,7 +17,7 @@ const useAdmissions = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.post('http://localhost:8080/api/admissions/admit', admissionData, {
+      const response = await axios.post('/api/admissions/admit', admissionData, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ const useAdmissions = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/admissions/active', {
+      const response = await axios.get('/api/admissions/active', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -139,7 +139,7 @@ const useAdmissions = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/admissions/getAll', {
+      const response = await axios.get('/api/admissions/getAll', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -194,7 +194,7 @@ const useAdmissions = (showToast = null) => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.put(`http://localhost:8080/api/admissions/discharge/${admissionId}`, {}, {
+      const response = await axios.put(`/api/admissions/discharge/${admissionId}`, {}, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'

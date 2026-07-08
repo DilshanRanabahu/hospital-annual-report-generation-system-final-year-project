@@ -97,7 +97,7 @@ const useLabRequestWebSocket = (showToast = null) => {
     error, 
     sendMessage, 
     disconnect 
-  } = useWebSocket('http://localhost:8080/ws', subscriptions, {
+  } = useWebSocket('/ws', subscriptions, {
     reconnect: true,
     reconnectInterval: 3000,
     maxReconnectAttempts: 10

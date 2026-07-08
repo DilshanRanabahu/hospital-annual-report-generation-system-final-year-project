@@ -149,7 +149,7 @@ export const useDialysisWebSocket = (onDialysisUpdate) => {
 
   // Use WebSocket hook
   const { isConnected, error, sendMessage, reconnect } = useWebSocket(
-    'http://localhost:8080/ws',
+    '/ws',
     subscriptions,
     wsOptions
   );

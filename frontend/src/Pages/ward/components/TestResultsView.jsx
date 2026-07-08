@@ -21,7 +21,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
       if (jwtToken) {
         try {
           response = await axios.get(
-            `http://localhost:8080/api/test-results/patient/${patientNationalId}/recent`,
+            `/api/test-results/patient/${patientNationalId}/recent`,
             {
               headers: {
                 'Authorization': `Bearer ${jwtToken}`,
@@ -34,7 +34,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
             console.log('🔓 JWT failed, trying without authentication...');
             // Try without JWT since some endpoints might be public
             response = await axios.get(
-              `http://localhost:8080/api/test-results/patient/${patientNationalId}/recent`,
+              `/api/test-results/patient/${patientNationalId}/recent`,
               {
                 headers: {
                   'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
       } else {
         // No JWT token, try direct API call
         response = await axios.get(
-          `http://localhost:8080/api/test-results/patient/${patientNationalId}/recent`,
+          `/api/test-results/patient/${patientNationalId}/recent`,
           {
             headers: {
               'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
       if (jwtToken) {
         try {
           response = await axios.get(
-            `http://localhost:8080/api/test-results/patient/${patientNationalId}`,
+            `/api/test-results/patient/${patientNationalId}`,
             {
               headers: {
                 'Authorization': `Bearer ${jwtToken}`,
@@ -106,7 +106,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
           if (authError.response?.status === 401 || authError.response?.status === 403) {
             console.log('🔓 JWT failed, trying without authentication...');
             response = await axios.get(
-              `http://localhost:8080/api/test-results/patient/${patientNationalId}`,
+              `/api/test-results/patient/${patientNationalId}`,
               {
                 headers: {
                   'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ const TestResultsView = ({ patientNationalId, showToast }) => {
         }
       } else {
         response = await axios.get(
-          `http://localhost:8080/api/test-results/patient/${patientNationalId}`,
+          `/api/test-results/patient/${patientNationalId}`,
           {
             headers: {
               'Content-Type': 'application/json'

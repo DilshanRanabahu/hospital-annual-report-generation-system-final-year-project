@@ -53,7 +53,7 @@ const useLabTests = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.get('http://localhost:8080/api/lab/test-orders', {
+      const response = await axios.get('/api/lab/test-orders', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -105,7 +105,7 @@ const useLabTests = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.post('http://localhost:8080/api/lab/test-orders', orderData, {
+      const response = await axios.post('/api/lab/test-orders', orderData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -168,7 +168,7 @@ const useLabTests = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.put(`http://localhost:8080/api/lab/test-orders/${orderId}`, updateData, {
+      const response = await axios.put(`/api/lab/test-orders/${orderId}`, updateData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -221,7 +221,7 @@ const useLabTests = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.patch(`http://localhost:8080/api/lab/test-orders/${orderId}/process`, processData, {
+      const response = await axios.patch(`/api/lab/test-orders/${orderId}/process`, processData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`

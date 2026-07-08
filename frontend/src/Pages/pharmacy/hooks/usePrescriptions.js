@@ -48,8 +48,8 @@ export const usePrescriptions = () => {
       
       // Fetch both ward prescriptions and clinic prescriptions
       const [wardResponse, clinicResponse] = await Promise.all([
-        axios.get('http://localhost:8080/api/prescriptions/all', { headers }),
-        axios.get('http://localhost:8080/api/clinic/prescriptions', { headers })
+        axios.get('/api/prescriptions/all', { headers }),
+        axios.get('/api/clinic/prescriptions', { headers })
       ]);
       
       // Handle ward prescriptions
@@ -211,7 +211,7 @@ export const usePrescriptions = () => {
     try {
       console.log('🔍 Fetching clinic prescription details:', prescriptionId);
       
-      const response = await axios.get(`http://localhost:8080/api/clinic/prescriptions/prescription/${prescriptionId}`, {
+      const response = await axios.get(`/api/clinic/prescriptions/prescription/${prescriptionId}`, {
         headers: getAuthHeaders()
       });
 
@@ -418,7 +418,7 @@ export const usePrescriptions = () => {
   const processPrescription = useCallback(async (prescriptionId) => {
     try {
       const headers = getAuthHeaders();
-      await axios.put(`http://localhost:8080/api/prescriptions/prescription-id/${prescriptionId}/process`, {}, { headers });
+      await axios.put(`/api/prescriptions/prescription-id/${prescriptionId}/process`, {}, { headers });
       
       setPrescriptions(prev => prev.map(p => 
         p.prescriptionId === prescriptionId 
@@ -444,12 +444,12 @@ export const usePrescriptions = () => {
       // Use appropriate API endpoint based on prescription type
       if (isClinicPrescription) {
         // For clinic prescriptions, use the status update endpoint
-        const clinicPrescription = await axios.get(`http://localhost:8080/api/clinic/prescriptions/prescription/${prescriptionId}`, { headers });
-        await axios.put(`http://localhost:8080/api/clinic/prescriptions/${clinicPrescription.data.id}/status`, 
+        const clinicPrescription = await axios.get(`/api/clinic/prescriptions/prescription/${prescriptionId}`, { headers });
+        await axios.put(`/api/clinic/prescriptions/${clinicPrescription.data.id}/status`, 
           { status: newStatus }, { headers });
       } else {
         // For ward prescriptions, use existing process endpoint or create status endpoint
-        await axios.put(`http://localhost:8080/api/prescriptions/prescription-id/${prescriptionId}/status`, 
+        await axios.put(`/api/prescriptions/prescription-id/${prescriptionId}/status`, 
           { status: newStatus }, { headers });
       }
       
@@ -477,8 +477,8 @@ export const usePrescriptions = () => {
       
       // Use appropriate API endpoint based on prescription type
       const endpoint = isClinicPrescription 
-        ? `http://localhost:8080/api/clinic/prescriptions/prescription/${prescriptionId}/dispense`
-        : `http://localhost:8080/api/prescriptions/prescription-id/${prescriptionId}/dispense`;
+        ? `/api/clinic/prescriptions/prescription/${prescriptionId}/dispense`
+        : `/api/prescriptions/prescription-id/${prescriptionId}/dispense`;
       
       await axios.post(endpoint, dispensingData, { headers });
       
@@ -510,8 +510,8 @@ export const usePrescriptions = () => {
       
       // Use appropriate API endpoint based on prescription type
       const endpoint = isClinicPrescription 
-        ? `http://localhost:8080/api/clinic/prescriptions/prescription/${prescriptionId}/cancel`
-        : `http://localhost:8080/api/prescriptions/prescription-id/${prescriptionId}/cancel`;
+        ? `/api/clinic/prescriptions/prescription/${prescriptionId}/cancel`
+        : `/api/prescriptions/prescription-id/${prescriptionId}/cancel`;
       
       await axios.put(endpoint, { reason: cancellationReason }, { headers });
       
@@ -531,7 +531,7 @@ export const usePrescriptions = () => {
   const verifyInteractions = useCallback(async (prescriptionId) => {
     try {
       const headers = getAuthHeaders();
-      const response = await axios.post(`http://localhost:8080/api/prescriptions/prescription-id/${prescriptionId}/check-interactions`, {}, { headers });
+      const response = await axios.post(`/api/prescriptions/prescription-id/${prescriptionId}/check-interactions`, {}, { headers });
       
       // Handle different response structures
       let interactions = [];

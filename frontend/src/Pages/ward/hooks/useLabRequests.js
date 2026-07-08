@@ -32,7 +32,7 @@ const useLabRequests = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/lab-requests/all', {
+      const response = await axios.get('/api/lab-requests/all', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -92,7 +92,7 @@ const useLabRequests = (showToast = null) => {
         }))
       };
 
-      const response = await axios.post('http://localhost:8080/api/lab-requests/create', payload, {
+      const response = await axios.post('/api/lab-requests/create', payload, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ const useLabRequests = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get(`http://localhost:8080/api/lab-requests/ward/${encodeURIComponent(wardName)}`, {
+      const response = await axios.get(`/api/lab-requests/ward/${encodeURIComponent(wardName)}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -175,7 +175,7 @@ const useLabRequests = (showToast = null) => {
         return [];
       }
 
-      const response = await axios.get(`http://localhost:8080/api/lab-requests/patient/${patientNationalId}`, {
+      const response = await axios.get(`/api/lab-requests/patient/${patientNationalId}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -199,7 +199,7 @@ const useLabRequests = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/lab-requests/pending', {
+      const response = await axios.get('/api/lab-requests/pending', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }

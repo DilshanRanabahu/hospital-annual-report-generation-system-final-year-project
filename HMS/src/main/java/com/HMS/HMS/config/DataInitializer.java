@@ -41,7 +41,62 @@ public class DataInitializer implements CommandLineRunner {
             admin.setPassword(passwordEncoder.encode("ADMIN001"));
             admin.setRole(Role.ADMIN);
             userRepo.save(admin);
-            System.out.println("Default admin created: EMPID=ADMIN001, password=admin123");
+            System.out.println("Default admin created: EMPID=ADMIN001, password=ADMIN001");
+        }
+
+        // --- Additional Default Users ---
+        if (!userRepo.existsById("CLINIC01")) {
+            User cn = new User();
+            cn.setEmpId("CLINIC01");
+            cn.setUsername("clinicnurse");
+            cn.setPassword(passwordEncoder.encode("nurse123"));
+            cn.setRole(Role.CLINIC_NURSE);
+            userRepo.save(cn);
+        }
+
+        if (!userRepo.existsById("WARD01")) {
+            User wn = new User();
+            wn.setEmpId("WARD01");
+            wn.setUsername("wardnurse");
+            wn.setPassword(passwordEncoder.encode("nurse123"));
+            wn.setRole(Role.WARD_NURSE);
+            userRepo.save(wn);
+        }
+
+        if (!userRepo.existsById("DIALYSIS01")) {
+            User dn = new User();
+            dn.setEmpId("DIALYSIS01");
+            dn.setUsername("dialysisnurse");
+            dn.setPassword(passwordEncoder.encode("nurse123"));
+            dn.setRole(Role.DIALYSIS_NURSE);
+            userRepo.save(dn);
+        }
+
+        if (!userRepo.existsById("DOC01")) {
+            User doc = new User();
+            doc.setEmpId("DOC01");
+            doc.setUsername("doctor");
+            doc.setPassword(passwordEncoder.encode("doctor123"));
+            doc.setRole(Role.WARD_DOCTOR);
+            userRepo.save(doc);
+        }
+
+        if (!userRepo.existsById("PHARM01")) {
+            User pha = new User();
+            pha.setEmpId("PHARM01");
+            pha.setUsername("pharmacist");
+            pha.setPassword(passwordEncoder.encode("pharm123"));
+            pha.setRole(Role.PHARMACIST);
+            userRepo.save(pha);
+        }
+
+        if (!userRepo.existsById("LAB01")) {
+            User lab = new User();
+            lab.setEmpId("LAB01");
+            lab.setUsername("labtech");
+            lab.setPassword(passwordEncoder.encode("lab123"));
+            lab.setRole(Role.LAB_TECH);
+            userRepo.save(lab);
         }
 
         if (wardRepo.count() == 0) {

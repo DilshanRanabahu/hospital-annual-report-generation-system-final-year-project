@@ -27,7 +27,7 @@ const useTransferReports = (showToast = null) => {
         ? `/api/reports/transfers/patient/${patientNationalId}/preview`
         : `/api/reports/transfers/patient/${patientNationalId}/pdf`;
 
-      const response = await axios.get(`http://localhost:8080${endpoint}`, {
+      const response = await axios.get(`${endpoint}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
         },

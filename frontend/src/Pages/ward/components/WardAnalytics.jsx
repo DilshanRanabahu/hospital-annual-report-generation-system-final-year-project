@@ -119,7 +119,7 @@ export default function WardAnalytics({
       // Fetch patient details in batches
       const patientPromises = uniquePatientIds.map(async (nationalId) => {
         try {
-          const response = await axios.get(`http://localhost:8080/api/patients/${nationalId}`, { headers });
+          const response = await axios.get(`/api/patients/${nationalId}`, { headers });
           return response.data;
         } catch (error) {
           console.warn(`Failed to fetch patient ${nationalId}:`, error);

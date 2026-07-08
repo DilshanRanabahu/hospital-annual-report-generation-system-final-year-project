@@ -51,7 +51,7 @@ const useDoctors = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/doctors/getAll', {
+      const response = await axios.get('/api/doctors/getAll', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -115,7 +115,7 @@ const useDoctors = () => {
         specialization: doctorData.specialization
       };
 
-      await axios.post('http://localhost:8080/api/doctors/add', requestData, {
+      await axios.post('/api/doctors/add', requestData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -180,7 +180,7 @@ const useDoctors = () => {
         return false;
       }
 
-      await axios.delete(`http://localhost:8080/api/doctors/delete/${doctorId}`, {
+      await axios.delete(`/api/doctors/delete/${doctorId}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -248,7 +248,7 @@ const useDoctors = () => {
         specialization: doctorData.specialization
       };
 
-      await axios.put(`http://localhost:8080/api/doctors/update/${doctorData.id}`, requestData, {
+      await axios.put(`/api/doctors/update/${doctorData.id}`, requestData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`

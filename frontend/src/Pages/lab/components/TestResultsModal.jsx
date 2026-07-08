@@ -237,27 +237,27 @@ const TestResultsModal = ({ isOpen, onClose, labRequest, showToast }) => {
       console.log('Submitting test results:', submitData);
 
       // Test 1: Simple endpoint
-      const testResponse = await axios.get('http://localhost:8080/api/simple-test/hello');
+      const testResponse = await axios.get('/api/simple-test/hello');
       console.log('✅ Simple test response:', testResponse.data);
 
       // Test 2: Database connection
-      const dbResponse = await axios.get('http://localhost:8080/api/debug/database-connection');
+      const dbResponse = await axios.get('/api/debug/database-connection');
       console.log('✅ Database test response:', dbResponse.data);
 
       // Test 3: Lab request exists
-      const labRequestResponse = await axios.get(`http://localhost:8080/api/debug/lab-request/${submitData.requestId}`);
+      const labRequestResponse = await axios.get(`/api/debug/lab-request/${submitData.requestId}`);
       console.log('✅ Lab request test response:', labRequestResponse.data);
 
       // Test 4: Basic test result save (without specific test results)
       const basicTestResult = await axios.post(
-        'http://localhost:8080/api/test-simple/save-basic',
+        '/api/test-simple/save-basic',
         submitData
       );
       console.log('✅ Basic test result response:', basicTestResult.data);
 
       // Test 5: Simple test result endpoint (no database)
       const simpleTestResult = await axios.post(
-        'http://localhost:8080/api/test-results-simple/test-save',
+        '/api/test-results-simple/test-save',
         submitData
       );
       console.log('✅ Simple test result response:', simpleTestResult.data);
@@ -265,7 +265,7 @@ const TestResultsModal = ({ isOpen, onClose, labRequest, showToast }) => {
       // Test 6: Full test result save WITHOUT Authorization (to test if JWT is the issue)
       console.log('🔍 Testing without JWT token first...');
       const responseNoAuth = await axios.post(
-        'http://localhost:8080/api/test-results/save',
+        '/api/test-results/save',
         submitData,
         {
           headers: {
@@ -278,7 +278,7 @@ const TestResultsModal = ({ isOpen, onClose, labRequest, showToast }) => {
       // Test 7: Full test result save WITH Authorization (original)
       console.log('🔍 JWT Token:', jwtToken ? 'exists' : 'missing');
       const response = await axios.post(
-        'http://localhost:8080/api/test-results/save',
+        '/api/test-results/save',
         submitData,
         {
           headers: {

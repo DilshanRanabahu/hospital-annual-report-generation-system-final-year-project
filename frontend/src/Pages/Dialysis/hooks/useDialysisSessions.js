@@ -64,7 +64,7 @@ const useDialysisSessions = (showToast) => {
     try {
       const jwtToken = localStorage.getItem('jwtToken');
       const response = await axios.patch(
-        `http://localhost:8080/api/dialysis/machines/${machineId}/status`,
+        `/api/dialysis/machines/${machineId}/status`,
         { 
           status: status,
           reason: reason,
@@ -117,7 +117,7 @@ const useDialysisSessions = (showToast) => {
       
       // Real API call to fetch dialysis sessions
       const jwtToken = localStorage.getItem('jwtToken');
-      const response = await axios.get('http://localhost:8080/api/dialysis/sessions', {
+      const response = await axios.get('/api/dialysis/sessions', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -147,7 +147,7 @@ const useDialysisSessions = (showToast) => {
       
       // Real API call to update session
       const jwtToken = localStorage.getItem('jwtToken');
-      const response = await axios.put(`http://localhost:8080/api/dialysis/sessions/${sessionId}`, updateData, {
+      const response = await axios.put(`/api/dialysis/sessions/${sessionId}`, updateData, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -184,7 +184,7 @@ const useDialysisSessions = (showToast) => {
       
       // Real API call to update attendance
       const jwtToken = localStorage.getItem('jwtToken');
-      await axios.patch(`http://localhost:8080/api/dialysis/sessions/${sessionId}/attendance`, 
+      await axios.patch(`/api/dialysis/sessions/${sessionId}/attendance`, 
         { attendance: attendanceStatus }, 
         {
           headers: {
@@ -232,7 +232,7 @@ const useDialysisSessions = (showToast) => {
       
       // Step 1: Update session details
       console.log('📝 Updating session details...', { sessionId, detailsData });
-      await axios.patch(`http://localhost:8080/api/dialysis/sessions/${sessionId}/details`, 
+      await axios.patch(`/api/dialysis/sessions/${sessionId}/details`, 
         detailsData, 
         {
           headers: {
@@ -315,7 +315,7 @@ const useDialysisSessions = (showToast) => {
       
       // Step 1: Delete the session
       console.log('🗑️ Deleting dialysis session...', { sessionId, machineId: session.machineId });
-      await axios.delete(`http://localhost:8080/api/dialysis/sessions/${sessionId}`, {
+      await axios.delete(`/api/dialysis/sessions/${sessionId}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -382,7 +382,7 @@ const useDialysisSessions = (showToast) => {
       }
 
       // Fetch patients currently admitted to Ward 4 (Dialysis Ward)
-      const response = await axios.get('http://localhost:8080/api/admissions/ward/4', {
+      const response = await axios.get('/api/admissions/ward/4', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'
@@ -441,7 +441,7 @@ const useDialysisSessions = (showToast) => {
     try {
       const jwtToken = localStorage.getItem('jwtToken');
       const response = await axios.get(
-        `http://localhost:8080/api/dialysis/machines/available-for-time`,
+        `/api/dialysis/machines/available-for-time`,
         {
           params: {
             date: date,
@@ -465,7 +465,7 @@ const useDialysisSessions = (showToast) => {
     try {
       const jwtToken = localStorage.getItem('jwtToken');
       const response = await axios.get(
-        `http://localhost:8080/api/dialysis/machines/availability-status`,
+        `/api/dialysis/machines/availability-status`,
         {
           params: {
             date: date,
@@ -493,7 +493,7 @@ const useDialysisSessions = (showToast) => {
       
       // Step 1: Create the session
       console.log('📝 Creating dialysis session...', sessionData);
-      const response = await axios.post('http://localhost:8080/api/dialysis/sessions', sessionData, {
+      const response = await axios.post('/api/dialysis/sessions', sessionData, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`,
           'Content-Type': 'application/json'

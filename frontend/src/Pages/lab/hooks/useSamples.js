@@ -53,7 +53,7 @@ const useSamples = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.get('http://localhost:8080/api/lab/samples', {
+      const response = await axios.get('/api/lab/samples', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -104,7 +104,7 @@ const useSamples = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.post('http://localhost:8080/api/lab/samples', sampleData, {
+      const response = await axios.post('/api/lab/samples', sampleData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -167,7 +167,7 @@ const useSamples = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.patch(`http://localhost:8080/api/lab/samples/${sampleId}/status`,
+      const response = await axios.patch(`/api/lab/samples/${sampleId}/status`,
         { status: newStatus, ...additionalData }, {
         headers: {
           'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ const useSamples = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.post('http://localhost:8080/api/lab/samples/search', searchCriteria, {
+      const response = await axios.post('/api/lab/samples/search', searchCriteria, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`

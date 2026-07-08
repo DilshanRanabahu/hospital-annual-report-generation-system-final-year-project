@@ -25,7 +25,7 @@ export default function InventoryAlerts({ loading: externalLoading }) {
         setLoading(true);
         setError(null);
         
-        const response = await axios.get(`http://localhost:8080/api/pharmacy/medications/alerts`, {
+        const response = await axios.get(`/api/pharmacy/medications/alerts`, {
           params: { daysUntilExpiry }
         });
         

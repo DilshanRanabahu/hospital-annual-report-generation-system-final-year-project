@@ -196,7 +196,7 @@ export default function SessionScheduler({
     const fetchAllMachines = async () => {
       try {
         setMachinesLoading(true);
-        const response = await fetch('http://localhost:8080/api/dialysis/machines');
+        const response = await fetch('/api/dialysis/machines');
         if (response.ok) {
           const machineData = await response.json();
           

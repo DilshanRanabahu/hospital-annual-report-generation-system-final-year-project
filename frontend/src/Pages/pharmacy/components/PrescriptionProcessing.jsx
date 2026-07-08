@@ -739,8 +739,8 @@ export default function PrescriptionProcessing({
                   {/* Download PDF Button */}
                   <a
                     href={selectedPrescription.isClinicPrescription 
-                      ? `http://localhost:8080/api/clinic/prescriptions/${selectedPrescription.prescriptionId}/pdf`
-                      : `http://localhost:8080/api/prescriptions/${selectedPrescription.prescriptionId}/pdf`
+                      ? `/api/clinic/prescriptions/${selectedPrescription.prescriptionId}/pdf`
+                      : `/api/prescriptions/${selectedPrescription.prescriptionId}/pdf`
                     }
                     download={`Prescription_${selectedPrescription.prescriptionId}.pdf`}
                     className="flex items-center space-x-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"

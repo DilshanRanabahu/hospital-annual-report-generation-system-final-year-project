@@ -87,7 +87,7 @@ export default function DialysisDashboard() {
       const jwtToken = localStorage.getItem('jwtToken');
 
       const response = await fetch(
-        `http://localhost:8080/api/dialysis/sessions/${sessionId}/report/pdf`,
+        `/api/dialysis/sessions/${sessionId}/report/pdf`,
         {
           method: 'GET',
           headers: {

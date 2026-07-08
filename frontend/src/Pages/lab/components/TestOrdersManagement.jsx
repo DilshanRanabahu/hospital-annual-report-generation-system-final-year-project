@@ -30,7 +30,7 @@ export default function TestOrdersManagement({ showToast }) {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/lab-requests/all', {
+      const response = await axios.get('/api/lab-requests/all', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -78,7 +78,7 @@ export default function TestOrdersManagement({ showToast }) {
       });
       
       // Send update to backend
-      await axios.put(`http://localhost:8080/api/lab-requests/${requestId}/status`, 
+      await axios.put(`/api/lab-requests/${requestId}/status`, 
         null,
         {
           params: {

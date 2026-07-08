@@ -32,7 +32,7 @@ const TOAST_TYPES = {
 
 // Configuration constants
 const CONFIG = {
-  API_BASE: 'http://localhost:8080', // In production, this would come from environment variables
+  API_BASE: '', // In production, this would come from environment variables
   ITEMS_PER_PAGE: 10,
   DEBOUNCE_DELAY: 300,
   TOKEN_KEY: 'adminToken'

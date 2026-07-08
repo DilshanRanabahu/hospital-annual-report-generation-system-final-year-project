@@ -13,7 +13,7 @@ export default function useInventory(options = {}) {
   // Fetch inventory from API
   const fetchInventoryFromAPI = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/pharmacy/medications/inventory');
+      const response = await axios.get('/api/pharmacy/medications/inventory');
       
       if (response.data.success) {
         return response.data.data || [];
@@ -118,7 +118,7 @@ export default function useInventory(options = {}) {
 
   // WebSocket connection for real-time inventory updates
   const { isConnected: wsConnected } = useWebSocket(
-    'http://localhost:8080/ws',
+    '/ws',
     { 
       '/topic/inventory': handleInventoryWebSocketUpdate,
       '/topic/inventory/alerts': handleInventoryWebSocketUpdate
@@ -151,7 +151,7 @@ export default function useInventory(options = {}) {
     try {
       setError(null);
       
-      const response = await axios.put(`http://localhost:8080/api/pharmacy/medications/${medicationId}/stock`, {
+      const response = await axios.put(`/api/pharmacy/medications/${medicationId}/stock`, {
         newStock: updateData.newStock,
         batchNumber: updateData.batchNumber
       }, {
@@ -231,7 +231,7 @@ export default function useInventory(options = {}) {
     try {
       setError(null);
       
-      const response = await axios.post('http://localhost:8080/api/pharmacy/medications/add', itemData, {
+      const response = await axios.post('/api/pharmacy/medications/add', itemData, {
         headers: {
           'Content-Type': 'application/json',
         }

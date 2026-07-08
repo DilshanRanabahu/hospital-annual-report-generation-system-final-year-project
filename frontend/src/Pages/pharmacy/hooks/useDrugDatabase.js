@@ -39,7 +39,7 @@ export default function useDrugDatabase() {
       params.append('sort', sort);
 
       const response = await axios.get(
-        `http://localhost:8080/api/pharmacy/medications/getAll?${params.toString()}`,
+        `/api/pharmacy/medications/getAll?${params.toString()}`,
         { headers: getAuthHeaders() }
       );
 
@@ -286,7 +286,7 @@ export default function useDrugDatabase() {
 
   // WebSocket connection for real-time drug database updates
   const { isConnected: wsConnected } = useWebSocket(
-    'http://localhost:8080/ws',
+    '/ws',
     { '/topic/inventory': handleDrugDatabaseWebSocketUpdate },
     { debug: true, reconnectDelay: 5000 }
   );

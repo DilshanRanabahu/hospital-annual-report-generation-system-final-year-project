@@ -17,7 +17,7 @@ const usePatients = (showToast = null) => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/patients/all', {
+      const response = await axios.get('/api/patients/all', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -70,7 +70,7 @@ const usePatients = (showToast = null) => {
         return false;
       }
 
-      const response = await axios.post('http://localhost:8080/api/patients/register', patientData, {
+      const response = await axios.post('/api/patients/register', patientData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -165,7 +165,7 @@ const usePatients = (showToast = null) => {
         return false;
       }
 
-      const response = await axios.put(`http://localhost:8080/api/patients/${nationalId}`, patientData, {
+      const response = await axios.put(`/api/patients/${nationalId}`, patientData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -217,7 +217,7 @@ const usePatients = (showToast = null) => {
         return false;
       }
 
-      const response = await axios.delete(`http://localhost:8080/api/patients/${nationalId}`, {
+      const response = await axios.delete(`/api/patients/${nationalId}`, {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }

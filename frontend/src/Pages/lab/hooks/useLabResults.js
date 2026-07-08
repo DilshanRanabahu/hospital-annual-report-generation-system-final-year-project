@@ -68,7 +68,7 @@ const useLabResults = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.get('http://localhost:8080/api/lab/results', {
+      const response = await axios.get('/api/lab/results', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }
@@ -119,7 +119,7 @@ const useLabResults = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.post('http://localhost:8080/api/lab/results', resultData, {
+      const response = await axios.post('/api/lab/results', resultData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -182,7 +182,7 @@ const useLabResults = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.patch(`http://localhost:8080/api/lab/results/${resultId}/validate`, validationData, {
+      const response = await axios.patch(`/api/lab/results/${resultId}/validate`, validationData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`
@@ -235,7 +235,7 @@ const useLabResults = (showToast = null) => {
 
       // Uncomment when backend is ready
       /*
-      const response = await axios.patch(`http://localhost:8080/api/lab/results/${resultId}/approve`, approvalData, {
+      const response = await axios.patch(`/api/lab/results/${resultId}/approve`, approvalData, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${jwtToken}`

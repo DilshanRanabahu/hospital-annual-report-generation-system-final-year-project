@@ -19,7 +19,7 @@ const useAllAppointments = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:8080/api/appointments/getAll', {
+      const response = await axios.get('/api/appointments/getAll', {
         headers: {
           'Authorization': `Bearer ${jwtToken}`
         }

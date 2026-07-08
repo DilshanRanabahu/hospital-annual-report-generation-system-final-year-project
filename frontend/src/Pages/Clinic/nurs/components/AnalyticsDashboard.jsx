@@ -62,7 +62,7 @@ const AnalyticsDashboard = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:8080/api/reports/comprehensive-clinic/full-report/${selectedYear}/pdf`,
+        `/api/reports/comprehensive-clinic/full-report/${selectedYear}/pdf`,
         {
           headers: {
             'Authorization': `Bearer ${jwtToken}`,

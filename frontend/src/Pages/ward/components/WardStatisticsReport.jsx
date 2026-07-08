@@ -66,7 +66,7 @@ const WardStatisticsReport = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:8080/api/reports/ward-statistics/ward/${selectedWard}/year/${selectedYear}`, {
+      const response = await fetch(`/api/reports/ward-statistics/ward/${selectedWard}/year/${selectedYear}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -102,7 +102,7 @@ const WardStatisticsReport = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:8080/api/reports/ward-statistics/hospital-wide/${selectedYear}`, {
+      const response = await fetch(`/api/reports/ward-statistics/hospital-wide/${selectedYear}`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -152,13 +152,13 @@ const WardStatisticsReport = () => {
       let url, filename, logMessage;
 
       if (reportMode === 'hospital-wide') {
-        url = `http://localhost:8080/api/reports/ward-statistics/hospital-wide/export-pdf/${selectedYear}`;
+        url = `/api/reports/ward-statistics/hospital-wide/export-pdf/${selectedYear}`;
         filename = `Hospital_Wide_Statistics_${selectedYear}.pdf`;
         logMessage = `Downloading hospital-wide PDF for ${selectedYear}`;
       } else {
         const selectedWardData = wards.find(w => w.apiName === selectedWard);
         const _WARD_DISPLAY_NAME = selectedWardData ? selectedWardData.displayName : selectedWard;
-        url = `http://localhost:8080/api/reports/ward-statistics/ward/${selectedWard}/export-pdf/${selectedYear}`;
+        url = `/api/reports/ward-statistics/ward/${selectedWard}/export-pdf/${selectedYear}`;
         filename = `Ward_${selectedWard}_Statistics_${selectedYear}.pdf`;
         logMessage = `Downloading PDF for ${selectedWard} (${selectedYear})`;
       }

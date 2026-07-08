@@ -29,7 +29,7 @@ const usePrescriptions = () => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/pharmacy/medications/getAll', {
+      const response = await axios.get('/api/pharmacy/medications/getAll', {
         headers: getAuthHeaders()
       });
 
@@ -90,7 +90,7 @@ const usePrescriptions = () => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      const response = await axios.get('http://localhost:8080/api/admissions/active', {
+      const response = await axios.get('/api/admissions/active', {
         headers: getAuthHeaders()
       });
 
@@ -175,7 +175,7 @@ const usePrescriptions = () => {
       }
 
       // Fetch prescriptions from API
-      const response = await axios.get('http://localhost:8080/api/prescriptions?page=0&size=100&sortBy=prescribedDate&sortOrder=desc', {
+      const response = await axios.get('/api/prescriptions?page=0&size=100&sortBy=prescribedDate&sortOrder=desc', {
         headers: getAuthHeaders()
       });
 
@@ -408,7 +408,7 @@ const usePrescriptions = () => {
 
       console.log('📤 Sending validated API data:', JSON.stringify(apiData, null, 2));
 
-      const response = await axios.post('http://localhost:8080/api/prescriptions', apiData, {
+      const response = await axios.post('/api/prescriptions', apiData, {
         headers: getAuthHeaders()
       });
 
@@ -531,7 +531,7 @@ const usePrescriptions = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:8080/api/prescriptions/${prescriptionId}/items`,
+        `/api/prescriptions/${prescriptionId}/items`,
         itemData,
         { headers: getAuthHeaders() }
       );
@@ -609,7 +609,7 @@ const usePrescriptions = () => {
       }
 
       const response = await axios.delete(
-        `http://localhost:8080/api/prescriptions/${prescriptionId}/items/${itemId}`,
+        `/api/prescriptions/${prescriptionId}/items/${itemId}`,
         { headers: getAuthHeaders() }
       );
 
@@ -688,7 +688,7 @@ const usePrescriptions = () => {
       // For status updates, use the status endpoint
       if (updateData.status && Object.keys(updateData).length === 1) {
         await axios.put(
-          `http://localhost:8080/api/prescriptions/${prescriptionId}/status?status=${updateData.status.toUpperCase()}`,
+          `/api/prescriptions/${prescriptionId}/status?status=${updateData.status.toUpperCase()}`,
           {},
           { headers: getAuthHeaders() }
         );
@@ -703,7 +703,7 @@ const usePrescriptions = () => {
         );
       } else {
         // For full updates, use the regular update endpoint
-        await axios.put(`http://localhost:8080/api/prescriptions/${prescriptionId}`, updateData, {
+        await axios.put(`/api/prescriptions/${prescriptionId}`, updateData, {
           headers: getAuthHeaders()
         });
 
@@ -757,7 +757,7 @@ const usePrescriptions = () => {
         throw new Error('Authentication required. Please log in again.');
       }
 
-      await axios.delete(`http://localhost:8080/api/prescriptions/${prescriptionId}`, {
+      await axios.delete(`/api/prescriptions/${prescriptionId}`, {
         headers: getAuthHeaders()
       });
 
@@ -878,7 +878,7 @@ const usePrescriptions = () => {
 
   // Initialize WebSocket connection
   const { isConnected: wsConnected, error: wsError } = useWebSocket(
-    'http://localhost:8080/ws',
+    '/ws',
     subscriptions,
     wsOptions
   );
