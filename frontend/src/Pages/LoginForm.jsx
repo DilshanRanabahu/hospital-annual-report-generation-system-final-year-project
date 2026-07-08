@@ -283,41 +283,40 @@ export default function LoginForm() {
           </div>
         </div>
 
+        {/* Right Side: Compact Demo Accounts Floating Panel */}
+        <div className="mt-8 xl:mt-0 xl:absolute xl:left-[calc(100%+2rem)] xl:top-1/2 xl:-translate-y-1/2 w-full xl:w-64 z-20">
+          <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 border border-gray-200">
+            <div className="text-center mb-4 border-b border-gray-100 pb-2">
+              <h3 className="text-base font-bold text-gray-800">Demo Accounts</h3>
+              <p className="text-xs text-gray-500 mt-1">Click to auto-fill</p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div onClick={() => { setFormData({empId: 'ADMIN001', password: 'ADMIN001'}); setErrors({}); }} className="cursor-pointer hover:bg-blue-100 p-2 bg-blue-50 rounded-lg border border-blue-200 text-center transition-colors">
+                <span className="font-semibold text-blue-900 block">Admin</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'DOC01', password: 'doctor123'}); setErrors({}); }} className="cursor-pointer hover:bg-indigo-100 p-2 bg-indigo-50 rounded-lg border border-indigo-200 text-center transition-colors">
+                <span className="font-semibold text-indigo-900 block">Doctor</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'CLINIC01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-green-100 p-2 bg-green-50 rounded-lg border border-green-200 text-center transition-colors">
+                <span className="font-semibold text-green-900 block">Clinic Nurse</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'WARD01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-emerald-100 p-2 bg-emerald-50 rounded-lg border border-emerald-200 text-center transition-colors">
+                <span className="font-semibold text-emerald-900 block">Ward Nurse</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'DIALYSIS01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-teal-100 p-2 bg-teal-50 rounded-lg border border-teal-200 text-center transition-colors">
+                <span className="font-semibold text-teal-900 block">Dialysis</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'PHARM01', password: 'pharm123'}); setErrors({}); }} className="cursor-pointer hover:bg-purple-100 p-2 bg-purple-50 rounded-lg border border-purple-200 text-center transition-colors">
+                <span className="font-semibold text-purple-900 block">Pharmacy</span>
+              </div>
+              <div onClick={() => { setFormData({empId: 'LAB01', password: 'lab123'}); setErrors({}); }} className="col-span-2 cursor-pointer hover:bg-orange-100 p-2 bg-orange-50 rounded-lg border border-orange-200 text-center transition-colors">
+                <span className="font-semibold text-orange-900 block">Lab Technician</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-      {/* Right Side: Compact Demo Accounts Floating Panel */}
-      <div className="mt-8 xl:mt-0 xl:absolute xl:left-[calc(100%+2rem)] xl:top-1/2 xl:-translate-y-1/2 w-full xl:w-64 z-20">
-        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 border border-gray-200">
-          <div className="text-center mb-4 border-b border-gray-100 pb-2">
-            <h3 className="text-base font-bold text-gray-800">Demo Accounts</h3>
-            <p className="text-xs text-gray-500 mt-1">Click to auto-fill</p>
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div onClick={() => { setFormData({empId: 'ADMIN001', password: 'ADMIN001'}); setErrors({}); }} className="cursor-pointer hover:bg-blue-100 p-2 bg-blue-50 rounded-lg border border-blue-200 text-center transition-colors">
-              <span className="font-semibold text-blue-900 block">Admin</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'DOC01', password: 'doctor123'}); setErrors({}); }} className="cursor-pointer hover:bg-indigo-100 p-2 bg-indigo-50 rounded-lg border border-indigo-200 text-center transition-colors">
-              <span className="font-semibold text-indigo-900 block">Doctor</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'CLINIC01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-green-100 p-2 bg-green-50 rounded-lg border border-green-200 text-center transition-colors">
-              <span className="font-semibold text-green-900 block">Clinic Nurse</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'WARD01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-emerald-100 p-2 bg-emerald-50 rounded-lg border border-emerald-200 text-center transition-colors">
-              <span className="font-semibold text-emerald-900 block">Ward Nurse</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'DIALYSIS01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-teal-100 p-2 bg-teal-50 rounded-lg border border-teal-200 text-center transition-colors">
-              <span className="font-semibold text-teal-900 block">Dialysis</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'PHARM01', password: 'pharm123'}); setErrors({}); }} className="cursor-pointer hover:bg-purple-100 p-2 bg-purple-50 rounded-lg border border-purple-200 text-center transition-colors">
-              <span className="font-semibold text-purple-900 block">Pharmacy</span>
-            </div>
-            <div onClick={() => { setFormData({empId: 'LAB01', password: 'lab123'}); setErrors({}); }} className="col-span-2 cursor-pointer hover:bg-orange-100 p-2 bg-orange-50 rounded-lg border border-orange-200 text-center transition-colors">
-              <span className="font-semibold text-orange-900 block">Lab Technician</span>
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
   );
 }
