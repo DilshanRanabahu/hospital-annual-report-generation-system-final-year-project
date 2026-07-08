@@ -154,53 +154,8 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl flex flex-col md:flex-row gap-8 items-stretch justify-center">
-        
-        {/* Left Side: Demo Accounts */}
-        <div className="w-full md:w-1/2 flex flex-col order-2 md:order-1 justify-center">
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md p-8 border border-gray-200">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-800">Demo Accounts</h3>
-              <p className="text-sm text-gray-500 mt-2">
-                Click any account to automatically fill the login form and explore the system.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-              <div onClick={() => { setFormData({empId: 'ADMIN001', password: 'ADMIN001'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-blue-100 transition-all active:scale-95 p-4 bg-blue-50 rounded-xl border border-blue-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-blue-900 text-base">Admin</span>
-                <span className="text-blue-700 font-mono text-xs">ADMIN001</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'DOC01', password: 'doctor123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-indigo-100 transition-all active:scale-95 p-4 bg-indigo-50 rounded-xl border border-indigo-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-indigo-900 text-base">Doctor</span>
-                <span className="text-indigo-700 font-mono text-xs">DOC01</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'CLINIC01', password: 'nurse123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-green-100 transition-all active:scale-95 p-4 bg-green-50 rounded-xl border border-green-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-green-900 text-base">Clinic Nurse</span>
-                <span className="text-green-700 font-mono text-xs">CLINIC01</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'WARD01', password: 'nurse123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-emerald-100 transition-all active:scale-95 p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-emerald-900 text-base">Ward Nurse</span>
-                <span className="text-emerald-700 font-mono text-xs">WARD01</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'DIALYSIS01', password: 'nurse123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-teal-100 transition-all active:scale-95 p-4 bg-teal-50 rounded-xl border border-teal-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-teal-900 text-base">Dialysis Nurse</span>
-                <span className="text-teal-700 font-mono text-xs">DIALYSIS01</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'PHARM01', password: 'pharm123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-purple-100 transition-all active:scale-95 p-4 bg-purple-50 rounded-xl border border-purple-200 flex flex-col items-center justify-center gap-1">
-                <span className="font-semibold text-purple-900 text-base">Pharmacist</span>
-                <span className="text-purple-700 font-mono text-xs">PHARM01</span>
-              </div>
-              <div onClick={() => { setFormData({empId: 'LAB01', password: 'lab123'}); setErrors({}); }} className="group cursor-pointer hover:shadow-md hover:bg-orange-100 transition-all active:scale-95 p-4 bg-orange-50 rounded-xl border border-orange-200 flex flex-col items-center justify-center gap-1 sm:col-span-2">
-                <span className="font-semibold text-orange-900 text-base">Lab Technician</span>
-                <span className="text-orange-700 font-mono text-xs">LAB01</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side: Login Form */}
-        <div className="w-full md:w-1/2 max-w-md flex flex-col justify-center order-1 md:order-2">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex flex-col items-center justify-center p-4 relative">
+      <div className="w-full max-w-md z-10 flex flex-col justify-center">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
@@ -329,7 +284,40 @@ export default function LoginForm() {
         </div>
 
         </div>
+
+      {/* Right Side: Compact Demo Accounts Floating Panel */}
+      <div className="mt-8 xl:mt-0 xl:absolute xl:right-8 xl:top-1/2 xl:-translate-y-1/2 w-full max-w-md xl:w-64 z-20">
+        <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 border border-gray-200">
+          <div className="text-center mb-4 border-b border-gray-100 pb-2">
+            <h3 className="text-base font-bold text-gray-800">Demo Accounts</h3>
+            <p className="text-xs text-gray-500 mt-1">Click to auto-fill</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            <div onClick={() => { setFormData({empId: 'ADMIN001', password: 'ADMIN001'}); setErrors({}); }} className="cursor-pointer hover:bg-blue-100 p-2 bg-blue-50 rounded-lg border border-blue-200 text-center transition-colors">
+              <span className="font-semibold text-blue-900 block">Admin</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'DOC01', password: 'doctor123'}); setErrors({}); }} className="cursor-pointer hover:bg-indigo-100 p-2 bg-indigo-50 rounded-lg border border-indigo-200 text-center transition-colors">
+              <span className="font-semibold text-indigo-900 block">Doctor</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'CLINIC01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-green-100 p-2 bg-green-50 rounded-lg border border-green-200 text-center transition-colors">
+              <span className="font-semibold text-green-900 block">Clinic Nurse</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'WARD01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-emerald-100 p-2 bg-emerald-50 rounded-lg border border-emerald-200 text-center transition-colors">
+              <span className="font-semibold text-emerald-900 block">Ward Nurse</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'DIALYSIS01', password: 'nurse123'}); setErrors({}); }} className="cursor-pointer hover:bg-teal-100 p-2 bg-teal-50 rounded-lg border border-teal-200 text-center transition-colors">
+              <span className="font-semibold text-teal-900 block">Dialysis</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'PHARM01', password: 'pharm123'}); setErrors({}); }} className="cursor-pointer hover:bg-purple-100 p-2 bg-purple-50 rounded-lg border border-purple-200 text-center transition-colors">
+              <span className="font-semibold text-purple-900 block">Pharmacy</span>
+            </div>
+            <div onClick={() => { setFormData({empId: 'LAB01', password: 'lab123'}); setErrors({}); }} className="col-span-2 cursor-pointer hover:bg-orange-100 p-2 bg-orange-50 rounded-lg border border-orange-200 text-center transition-colors">
+              <span className="font-semibold text-orange-900 block">Lab Technician</span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }
