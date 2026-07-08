@@ -154,8 +154,8 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex flex-col items-center justify-center p-4 relative">
-      <div className="w-full max-w-md z-10 flex flex-col justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
+      <div className="w-full max-w-md z-10 flex flex-col justify-center relative">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
@@ -286,7 +286,7 @@ export default function LoginForm() {
         </div>
 
       {/* Right Side: Compact Demo Accounts Floating Panel */}
-      <div className="mt-8 xl:mt-0 xl:absolute xl:right-8 xl:top-1/2 xl:-translate-y-1/2 w-full max-w-md xl:w-64 z-20">
+      <div className="mt-8 xl:mt-0 xl:absolute xl:left-[calc(100%+2rem)] xl:top-1/2 xl:-translate-y-1/2 w-full xl:w-64 z-20">
         <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 border border-gray-200">
           <div className="text-center mb-4 border-b border-gray-100 pb-2">
             <h3 className="text-base font-bold text-gray-800">Demo Accounts</h3>
