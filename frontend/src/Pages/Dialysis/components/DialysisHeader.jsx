@@ -1,13 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Droplet, 
   Users, 
   Clock,
   TrendingUp,
-  Shield
+  Shield,
+  LogOut
 } from 'lucide-react';
 
 export default function DialysisHeader({ stats }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('empId');
+    localStorage.removeItem('role');
+    navigate('/');
+  };
   const statCards = [
     {
       label: 'Total Patients',
@@ -73,7 +83,7 @@ export default function DialysisHeader({ stats }) {
             </div>
           </div>
 
-          {/* Stats Cards */}
+          {/* Stats Cards & Actions */}
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
             {statCards.map((stat, index) => (
               <div 
@@ -111,6 +121,13 @@ export default function DialysisHeader({ stats }) {
                 )}
               </div>
             ))}
+            
+            <div className="flex items-center justify-center border border-red-200 bg-red-50 rounded-xl p-3 hover:shadow-md transition-all duration-200 group cursor-pointer" onClick={handleLogout}>
+              <div className="flex flex-col items-center justify-center text-red-600 group-hover:scale-105 transition-transform">
+                <LogOut size={24} className="mb-1" />
+                <span className="font-bold text-sm">Logout</span>
+              </div>
+            </div>
           </div>
         </div>
 

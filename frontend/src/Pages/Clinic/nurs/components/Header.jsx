@@ -1,7 +1,17 @@
 import React from 'react';
 import { Heart, Shield, Bell, Settings, LogOut } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ todayStats }) => {
+  const navigate = useNavigate();
+  
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('empId');
+    localStorage.removeItem('role');
+    navigate('/');
+  };
+
   return (
     <header className="bg-white/90 backdrop-blur-md shadow-lg border-b-2 border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +57,11 @@ const Header = ({ todayStats }) => {
               <button className="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors">
                 <Settings size={18} />
               </button>
-              <button className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 transition-colors">
+              <button 
+                onClick={handleLogout}
+                className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 transition-colors flex items-center border border-red-100"
+                title="Logout"
+              >
                 <LogOut size={18} />
               </button>
             </div>

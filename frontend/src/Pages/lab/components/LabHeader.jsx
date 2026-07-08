@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   TestTube,
   Activity,
@@ -7,10 +8,20 @@ import {
   CheckCircle,
   TrendingUp,
   Users,
-  Microscope
+  Microscope,
+  LogOut
 } from 'lucide-react';
 
 export default function LabHeader({ stats = {} }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('empId');
+    localStorage.removeItem('role');
+    navigate('/');
+  };
+
   // Provide default values for stats to prevent runtime errors
   const safeStats = {
     todayTests: 0,
@@ -134,6 +145,13 @@ export default function LabHeader({ stats = {} }) {
                 })}
               </p>
             </div>
+            <button 
+              onClick={handleLogout}
+              className="bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 flex items-center shadow-sm hover:shadow"
+            >
+              <LogOut className="w-5 h-5 mr-2" />
+              Logout
+            </button>
           </div>
         </div>
 

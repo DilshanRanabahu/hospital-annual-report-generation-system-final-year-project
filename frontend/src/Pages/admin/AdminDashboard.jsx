@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // Add custom CSS animations
 const customStyles = `
@@ -300,6 +301,7 @@ const useDebounce = (value, delay) => {
 };
 
 export default function AdminDashboard() {
+  const navigate = useNavigate();
   // State management
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -791,23 +793,40 @@ export default function AdminDashboard() {
               </div>
             </div>
             
-            {/* Enhanced Mini Statistics */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-              {[
-                { label: 'Total Staff', value: statistics.total, color: 'bg-white border border-gray-200 text-gray-800 shadow-sm', icon: '👥' },
-                { label: 'Doctors', value: statistics.doctors, color: 'bg-blue-50 border border-blue-200 text-blue-800 shadow-sm', icon: '👨‍⚕️' },
-                { label: 'Nurses', value: statistics.nurses, color: 'bg-green-50 border border-green-200 text-green-800 shadow-sm', icon: '👩‍⚕️' },
-                { label: 'Support', value: statistics.support, color: 'bg-gray-50 border border-gray-200 text-gray-800 shadow-sm', icon: '🔧' }
-              ].map((stat) => (
-                <div key={stat.label} className="group relative">
-                  <div className="absolute inset-0 bg-white opacity-10 rounded-lg blur-sm group-hover:opacity-20 transition-opacity"></div>
-                  <div className={`relative ${stat.color} rounded-lg px-4 py-3 text-center hover:scale-105 transition-all duration-200`}>
-                    <div className="text-lg font-bold">{isLoadingUsers ? '...' : stat.value}</div>
-                    <div className="text-xs font-medium mt-1">{stat.label}</div>
-                    <div className="absolute top-1 right-2 text-lg opacity-60">{stat.icon}</div>
+            <div className="flex items-center space-x-6">
+              {/* Enhanced Mini Statistics */}
+              <div className="hidden lg:grid grid-cols-2 lg:grid-cols-4 gap-3">
+                {[
+                  { label: 'Total Staff', value: statistics.total, color: 'bg-white border border-gray-200 text-gray-800 shadow-sm', icon: '👥' },
+                  { label: 'Doctors', value: statistics.doctors, color: 'bg-blue-50 border border-blue-200 text-blue-800 shadow-sm', icon: '👨‍⚕️' },
+                  { label: 'Nurses', value: statistics.nurses, color: 'bg-green-50 border border-green-200 text-green-800 shadow-sm', icon: '👩‍⚕️' },
+                  { label: 'Support', value: statistics.support, color: 'bg-gray-50 border border-gray-200 text-gray-800 shadow-sm', icon: '🔧' }
+                ].map((stat) => (
+                  <div key={stat.label} className="group relative">
+                    <div className="absolute inset-0 bg-white opacity-10 rounded-lg blur-sm group-hover:opacity-20 transition-opacity"></div>
+                    <div className={`relative ${stat.color} rounded-lg px-4 py-3 text-center hover:scale-105 transition-all duration-200`}>
+                      <div className="text-lg font-bold">{isLoadingUsers ? '...' : stat.value}</div>
+                      <div className="text-xs font-medium mt-1">{stat.label}</div>
+                      <div className="absolute top-1 right-2 text-lg opacity-60">{stat.icon}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              
+              {/* Logout Button */}
+              <button 
+                onClick={() => {
+                  localStorage.removeItem('jwtToken');
+                  localStorage.removeItem('empId');
+                  localStorage.removeItem('role');
+                  localStorage.removeItem('adminToken');
+                  navigate('/');
+                }}
+                className="bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 flex items-center shadow-sm hover:shadow"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                Logout
+              </button>
             </div>
           </div>
         </div>

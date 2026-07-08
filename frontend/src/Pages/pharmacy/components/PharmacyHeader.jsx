@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   Pill, 
   ClipboardList, 
@@ -6,10 +7,19 @@ import {
   AlertTriangle,
   TrendingUp,
   Shield,
-  Clock
+  Clock,
+  LogOut
 } from 'lucide-react';
 
 export default function PharmacyHeader({ stats = {} }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('empId');
+    localStorage.removeItem('role');
+    navigate('/');
+  };
   // Provide default values for stats to prevent runtime errors
   const safeStats = {
     todayPrescriptions: 0,
@@ -132,6 +142,12 @@ export default function PharmacyHeader({ stats = {} }) {
                 )}
               </div>
             ))}
+            <div className="flex items-center justify-center border border-red-200 bg-red-50 rounded-xl p-3 hover:shadow-md transition-all duration-200 group cursor-pointer" onClick={handleLogout}>
+              <div className="flex flex-col items-center justify-center text-red-600 group-hover:scale-105 transition-transform">
+                <LogOut size={24} className="mb-1" />
+                <span className="font-bold text-sm">Logout</span>
+              </div>
+            </div>
           </div>
         </div>
 
